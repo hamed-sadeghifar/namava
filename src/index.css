@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "B Yekan+";
+  src: url("BYekan.eot");
+  src:
+    url("./assets/font/BYekan.eot?#iefix") format("embedded-opentype"),
+    url("./assets/font/BYekan.woff2") format("woff2"),
+    url("./assets/font/BYekan.woff") format("woff"),
+    url("./assets/font/BYekan.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "B Yekan+" !important;
+  background-color: black;
+}
