@@ -17,9 +17,11 @@ const HighLight = () => {
       </div>
       <div className="flex">
         {imgArray.map((img, index) => (
-          <div className="rounded-full max-w-47 max-h-47 border-2 border-blue-500 ml-4 cursor-pointer overflow-hidden">
+          <div
+            key={index}
+            className="rounded-full max-w-47 max-h-47 border-2 border-blue-500 ml-4 cursor-pointer overflow-hidden"
+          >
             <img
-              key={index}
               src={img}
               alt={`pic${index}`}
               className="rounded-full scale-95"

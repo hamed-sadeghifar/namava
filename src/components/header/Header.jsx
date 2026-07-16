@@ -119,24 +119,26 @@ const arraySlider = [
 
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSlice, setCurrentSlice] = useState(0);
+  const totalArray = arraySlider.length;
 
   const intervalRef = useRef(null);
 
   const changeSlide = (direction) => {
     setCurrentIndex((prev) => {
       if (direction === "next") {
-        return prev === arraySlider.length - 1 ? 0 : prev + 1;
+        return prev === totalArray - 1 ? 0 : prev + 1;
       }
-      return prev === 0 ? arraySlider.length - 1 : prev - 1;
+      return prev === 0 ? totalArray - 1 : prev - 1;
     });
   };
   const restartAutoPlay = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
+      setCurrentSlice((prev) => (prev + 1) % totalArray);
       changeSlide("next");
     }, 5000);
   };
-
   useEffect(() => {
     restartAutoPlay();
     return () => {
@@ -145,7 +147,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="relative h-screen overflow-hidden">
+    <header className="relative w-full xl:aspect-19/9 md:aspect-17.5/9 aspect-14.5/9 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover blur-xl scale-125"
         style={{
@@ -153,14 +155,14 @@ const Header = () => {
         }}
       ></div>
       <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/60 to-black"></div>
-      <div className="inner-header relative z-10 h-screen">
-        <div className="h-20">
+      <div className="inner-header relative z-10 w-full">
+        <div className="xl:h-20 h-15">
           <Navbar />
         </div>
         <Slider arraySlider={arraySlider} currentIndex={currentIndex} />
         <button
-          className="transition w-10 h-10 flex justify-center items-center rounded-full bg-black/60 
-        hover:bg-white/40 cursor-pointer absolute text-white left-20 bottom-15"
+          className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
+        hover:bg-white/40 cursor-pointer absolute text-white left-20 bottom-10"
           onClick={() => {
             restartAutoPlay();
             changeSlide("next");
@@ -169,8 +171,8 @@ const Header = () => {
           <FaAngleLeft className="text-2xl" />
         </button>
         <button
-          className="transition w-10 h-10 flex justify-center items-center rounded-full bg-black/60 
-        hover:bg-white/40 cursor-pointer absolute text-white left-32 bottom-15"
+          className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
+        hover:bg-white/40 cursor-pointer absolute text-white left-32 bottom-10"
           onClick={() => {
             restartAutoPlay();
             changeSlide("prev");
@@ -178,6 +180,16 @@ const Header = () => {
         >
           <FaAngleRight className="text-2xl" />
         </button>
+        <div className="flex gap-2 justify-center mt-5 md:hidden">
+          {Array.from({ length: totalArray }).map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 inset-0 rounded-full transition-colors duration-500
+                ${currentSlice === index ? "bg-white" : "bg-mist-500"}
+                `}
+            ></div>
+          ))}
+        </div>
       </div>
     </header>
   );

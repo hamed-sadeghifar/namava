@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className="mt-16 pb-8 bg-zinc-900">
       <div ref={placeholderRef}>
         <div
-          className={`flex justify-around text-mist-300 bg-zinc-800 text-sm py-2
+          className={`flex justify-around text-mist-300 bg-zinc-800 text-sm py-2.5
             ${fixed ? "fixed bottom-0 left-0 w-full z-50" : ""}`}
           ref={topFooterRef}
         >

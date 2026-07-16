@@ -3,15 +3,15 @@ const SliderContent = ({ items }) => {
   return (
     <>
       <img src={items.img} alt="solo" className="w-1/5 cursor-pointer" />
-      <h1 className=" text-xl text-gray-200 pt-6 pb-4 cursor-pointer w-1/5">
+      <h1 className=" sm:text-xl text-base text-gray-200 md:pt-6 pt-2 md:pb-4 pb-2 cursor-pointer md:w-1/5 w-full">
         {items.title}
       </h1>
       {items.description && (
-        <p className="description text-lg pb-4 text-gray-300">
+        <p className="description sm:text-lg text-sm md:pb-4 pb-1.5 text-gray-300">
           {items.description}
         </p>
       )}
-      <div className="flex items-center text-gray-300 text-base">
+      <div className="xl:flex items-center text-gray-300 text-base hidden">
         {items.age && (
           <p className="px-3 shadow-2xs shadow-amber-500 py-1 bg-amber-700 rounded-xl text-black font-black ml-6">
             {items.age}
