@@ -9,7 +9,7 @@ const Live = () => {
   const totalPages = Math.ceil(images.length / 3);
   return (
     <section
-      className="liv mt-16 mb-5 relative overflow-hidden"
+      className="live mt-16 mb-5 relative overflow-hidden"
       onMouseEnter={() => setFlag(true)}
       onMouseLeave={() => setFlag(false)}
     >
