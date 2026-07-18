@@ -24,7 +24,7 @@ import {
 } from "../../assets/spicial/index";
 import { useEffect, useRef, useState } from "react";
 
-const Spicial = () => {
+const Special = () => {
   const picArray = [
     pic1,
     pic2,
@@ -115,12 +115,12 @@ const Spicial = () => {
   };
 
   return (
-    <section className="special mx-10 mt-10 mb-5 overflow-hidden">
+    <section className="special xl:mx-10 md:mx-8 mx-6 mt-10 mb-5 overflow-hidden">
       <div className="transition flex items-center  text-gray-200 w-30 mb-5 hover:text-blue-300  cursor-pointer">
         <h3 className="text-lg font-semibold">ویژه</h3>
         <FaAngleLeft className="pr-5 text-xl font-semibold w-8" />
       </div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 xl:gap-4">
         {picArray.map((pic, index) => (
           <div
             className="relative"
@@ -135,7 +135,7 @@ const Spicial = () => {
                 className="w-full object-cover transition-opacity duration-700"
               />
             </div>
-            {hoveredCard === index && (
+            {hoveredCard === index && window.innerWidth > 1280 && (
               <div
                 className={` rounded-lg overflow-hidden transition-transform duration-500 ease-out
                   absolute top-0 left-0 w-full scale-150 z-40
@@ -214,4 +214,4 @@ const Spicial = () => {
     </section>
   );
 };
-export default Spicial;
+export default Special;

@@ -29,7 +29,7 @@ const HighLight = () => {
       } else {
         setVisibleCards(4);
       }
-      setCardWidth(firstCart.offsetWidth);
+      setCardWidth(firstCart.getBoundingClientRect().width);
     };
     updateCardSize();
     window.addEventListener("resize", updateCardSize);

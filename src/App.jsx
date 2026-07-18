@@ -5,8 +5,8 @@ import {
   HighLight,
   Live,
   SectionOne,
-  Spicial,
-  SpcialForNamava,
+  Special,
+  SpecialForNamava,
   Footer,
 } from "./components/index";
 
@@ -16,10 +16,10 @@ const App = () => {
       <Header />
       <SectionOne />
       <HighLight />
-      <Spicial />
+      <Special />
       <Channel />
       <Live />
-      <SpcialForNamava />
+      <SpecialForNamava />
       <Footer />
     </div>
   );

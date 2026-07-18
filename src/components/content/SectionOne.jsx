@@ -23,12 +23,12 @@ import {
   pic20,
 } from "../../assets/section 1/index";
 const SectionOne = () => {
+  const slideRef = useRef(null);
+
   const [page, setPage] = useState(0);
   const [flag, setFlag] = useState(false);
   const [cardWidth, setCardWidth] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
-
-  const slideRef = useRef(null);
 
   const bigImages = [
     pic1,
@@ -67,7 +67,7 @@ const SectionOne = () => {
       } else {
         setVisibleCards(2);
       }
-      setCardWidth(firstCart.offsetWidth);
+      setCardWidth(firstCart.getBoundingClientRect().width);
     };
     updateCardSize();
     window.addEventListener("resize", updateCardSize);
@@ -102,7 +102,7 @@ const SectionOne = () => {
         ref={slideRef}
         className="flex xl:mx-10 md:mx-8 mx-6"
         style={{
-          transform: `translateX(${page * (cardWidth + 16) * 2}px)`,
+          transform: `translateX(${page * (cardWidth + 16) * visibleCards}px)`,
           transition: "transform 1s ease-in 0.1s",
         }}
       >
