@@ -4,6 +4,10 @@ import {
   FaTwitter,
   FaAngleUp,
 } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
+import { GrAppsRounded } from "react-icons/gr";
+import { FiSearch } from "react-icons/fi";
+import { AiFillHome } from "react-icons/ai";
 
 import enamad from "../../assets/namad/enamad.png";
 import namad from "../../assets/namad/logo.png";
@@ -29,7 +33,7 @@ const Footer = () => {
     <footer className="mt-16 pb-8 bg-zinc-900">
       <div ref={placeholderRef}>
         <div
-          className={`flex justify-around text-mist-300 bg-zinc-800 text-sm py-2.5
+          className={`md:flex justify-around text-mist-300 bg-zinc-800 text-sm py-2.5 hidden
             ${fixed ? "fixed bottom-0 left-0 w-full z-50" : ""}`}
           ref={topFooterRef}
         >
@@ -38,35 +42,64 @@ const Footer = () => {
           <p className="cursor-pointer hover:text-mist-100">تبلیغات در نماوا</p>
           <p className="cursor-pointer hover:text-mist-100">خرید اشتراک</p>
           <p className="cursor-pointer hover:text-mist-100">کارت هدیه</p>
-          <p className="cursor-pointer hover:text-mist-100">سوالات متداول</p>
-          <p className="cursor-pointer hover:text-mist-100">تماس با ما</p>
-          <p className="cursor-pointer hover:text-mist-100">درباره نماوا</p>
+          <p className="cursor-pointer hover:text-mist-100 hidden xl:block">
+            سوالات متداول
+          </p>
+          <p className="cursor-pointer hover:text-mist-100 hidden xl:block">
+            تماس با ما
+          </p>
+          <p className="cursor-pointer hover:text-mist-100 hidden xl:block">
+            درباره نماوا
+          </p>
           <div className="flex items-center cursor-pointer hover:text-mist-100">
             <span>سایر لینک‌ها</span>
             <FaAngleUp className="text-xl mr-1" />
           </div>
         </div>
+        <div
+          className={`flex justify-around text-mist-400 bg-zinc-900 text-xs py-2.5 md:hidden
+            ${fixed ? "fixed bottom-0 left-0 w-full z-50" : ""}`}
+          ref={topFooterRef}
+        >
+          <div className="flex flex-col items-center justify-center cursor-pointer text-mist-100">
+            <AiFillHome className="text-lg" />
+            <span>خانه</span>
+          </div>
+          <div className="flex flex-col items-center justify-center cursor-pointer">
+            <FiSearch className="text-lg" />
+            <span>جستجو</span>
+          </div>
+          <div className="flex flex-col items-center justify-center cursor-pointer">
+            <GrAppsRounded className="text-lg" />
+            <span>دسته‌بندی</span>
+          </div>
+          <div className="flex flex-col items-center justify-center cursor-pointer">
+            <BsThreeDots className="text-lg" />
+            <span>بیشتر</span>
+          </div>
+        </div>
       </div>
-      <div className="mx-47">
-        <div className="bg-zinc-800 my-5 rounded-sm py-4 px-6 flex justify-between">
+      <div className="xl:max-w-285 xl:mx-auto mx-7 hidden md:block">
+        <div className="xl:bg-zinc-800 my-5 rounded-sm py-4 xl:px-6 flex justify-between">
           <div className="flex items-center">
-            <div className="bg-blue-500 rounded-lg w-18 h-18 flex items-center justify-center">
+            <div className="bg-blue-500 rounded-lg xl:w-18 w-12 xl:h-18 h-12 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="47"
                 height="30"
                 viewBox="0 0 47 30"
                 fill="#ffffff"
+                className="w-10 xl:w-auto"
               >
                 <path d="M14.022 17.41l-1.5.17v-.044a2.35 2.35 0 0 1-.274.037 12.87 12.87 0 0 1-2.95.1c-.456-.048-.906-.135-1.347-.26a2.47 2.47 0 0 1-.882-.435 1.9 1.9 0 0 1-.164-.148 1.99 1.99 0 0 1-.51-.9 2.72 2.72 0 0 1-.071-.347.44.44 0 0 1 0-.089v-4.088c.001-.27.04-.54.113-.8.033-.11.074-.216.124-.318a2.08 2.08 0 0 1 .349-.507l.027-.026a1.81 1.81 0 0 1 .514-.334 6.3 6.3 0 0 1 1.626-.438c.588-.088 1.18-.14 1.774-.153h.487l1.216.05c.55.04 1.094.118 1.632.235a3.35 3.35 0 0 1 1.527.667.42.42 0 0 1 .036.033c.167.18.298.388.387.616.023.06.043.12.06.183a2.01 2.01 0 0 1 .074.542v8.435a2.19 2.19 0 0 1-.062.533 1.78 1.78 0 0 1-.763 1.064 3.6 3.6 0 0 1-1.329.5l-.127.024a12.41 12.41 0 0 1-1.417.15l-1.35.026-.3-.01c-.796-.014-1.6-.083-2.377-.206l-.212-.068a.41.41 0 0 1-.241-.477 2.26 2.26 0 0 1 .1-.376c.035-.1.086-.192.15-.275a.7.7 0 0 1 .687-.245l.38.04a31.14 31.14 0 0 0 2.479.081l.192-.005c.468-.01.934-.07 1.4-.175.17-.036.325-.122.446-.246a.49.49 0 0 0 .12-.333V17.41zm0-1.733v-4.39a.4.4 0 0 0-.026-.147c-.02-.053-.053-.1-.093-.14-.405-.228-.862-.35-1.327-.356l-.6-.047a12.45 12.45 0 0 0-1.506.015c-.486.026-.967.104-1.436.232-.1.028-.19.08-.264.15a.57.57 0 0 0-.119.163 1.51 1.51 0 0 0-.113.638v3.528c.01.085.036.168.073.245a.47.47 0 0 0 .113.147.59.59 0 0 0 .169.1.75.75 0 0 0 .084.027 1.34 1.34 0 0 0 .165.039 11.42 11.42 0 0 0 3.338-.029l.262-.033.236-.033c.035-.005.07-.005.106 0zM3.037 8.807h.8a1.21 1.21 0 0 1 .853.352l.026.027a1.2 1.2 0 0 1 .16.21 1.18 1.18 0 0 1 .17.609v11.46a.4.4 0 0 1-.406.4h-.8a1.14 1.14 0 0 1-.484-.109c-.14-.065-.266-.156-.372-.267a1.27 1.27 0 0 1-.355-.86V9.21c.008-.22.187-.396.408-.4zm15.07 0h.735c.457-.001.875.256 1.08.664.083.165.127.348.13.533v9.29c-.01.122.018.244.08.35l.005.006.008.01a.62.62 0 0 0 .252.158l.113.04.178.05.3.065.3.05.3.036.3.027.308.02.312.01h.64l.33-.01.34-.02.35-.03.36-.046.368-.066a2.64 2.64 0 0 0 .363-.1c.083-.028.16-.07.23-.122l.018-.02c.022-.02.042-.043.06-.068s.026-.04.035-.064c.02-.047.03-.097.03-.147v-4.19c.001-.08.006-.16.017-.24a1.98 1.98 0 0 1 .128-.482l.02-.042a1.88 1.88 0 0 1 .181-.314 1.94 1.94 0 0 1 .215-.256.41.41 0 0 1 .038-.033 1.62 1.62 0 0 1 .25-.183 4.55 4.55 0 0 1 1.3-.473 13.8 13.8 0 0 1 2.435-.3l.8-.017 1.5.06a11.23 11.23 0 0 1 2.13.36c.418.1.8.29 1.15.554a.38.38 0 0 1 .037.032l.105.115a1.9 1.9 0 0 1 .313.5c.05.123.088.25.112.38a1.88 1.88 0 0 1 .033.344v4.183c-.001.05.01.1.028.147.01.026.026.05.043.073s.03.036.045.053l.01.01a2.92 2.92 0 0 0 1.358.35c.4.04.85.06 1.306.06.83.034 1.663-.065 2.463-.294.07-.027.134-.064.192-.11l.02-.02a.4.4 0 0 0 .088-.127c.02-.045.03-.094.03-.143v-4.2c0-.177.04-.35.117-.5.2-.42.625-.69 1.09-.688h.8c.223-.001.405.177.408.4v5.126a1.86 1.86 0 0 1-.145.725c-.017.04-.037.08-.057.12-.093.185-.214.354-.36.5a.46.46 0 0 1-.037.033 2.9 2.9 0 0 1-1.123.538 12.46 12.46 0 0 1-2.934.39h-.018a15.54 15.54 0 0 1-3.695-.3 5.27 5.27 0 0 1-.843-.261c-.372.148-.756.26-1.15.337-.45.09-.906.158-1.364.2l-1.307.072h-.345c-.29 0-.578-.007-.864-.02l-1.1-.088-1.016-.157a7.1 7.1 0 0 1-.964-.258l-.222-.085c-.115.05-.242.094-.377.136l-.5.133q-.236.054-.494.1l-.484.072-.472.053-.46.037q-.194.013-.4.022h-.06q-.22.01-.44.013-.22.004-.432 0-.213 0-.426-.007-.213-.007-.42-.017-.21-.01-.42-.026l-.417-.036-.417-.05-.418-.062-.418-.08-.15-.033-.267-.07-.41-.135a2.87 2.87 0 0 1-.389-.184 2.09 2.09 0 0 1-.331-.232l-.02-.018c-.11-.097-.206-.208-.288-.33a1.71 1.71 0 0 1-.2-.409c-.052-.155-.085-.316-.1-.48l-.013-.27V9.21a.4.4 0 0 1 .067-.231.41.41 0 0 1 .334-.173zm11.682 11.29l1.226.05h.147a13.32 13.32 0 0 0 1.457-.087c.43-.017.852-.135 1.228-.346l.018-.02a.4.4 0 0 0 .088-.126c.018-.047.026-.098.024-.148v-4.05c0-.05-.01-.1-.03-.147a.4.4 0 0 0-.088-.126l-.01-.01a.7.7 0 0 0-.17-.106 7.89 7.89 0 0 0-2.671-.335c-.967-.08-1.94.07-2.837.438l-.014.015c-.02.018-.035.038-.05.06s-.027.043-.037.067c-.02.047-.03.097-.03.147v4.05a.38.38 0 0 0 .029.147.39.39 0 0 0 .071.11l.016.015.02.02c.046.037.096.068.15.093a4.74 4.74 0 0 0 1.455.291zm12.975-9.888h.885c.47-.001.85.378.854.847v.665c-.003.47-.385.848-.854.847h-.885c-.47.001-.85-.378-.854-.847v-.666c.004-.47.385-.847.854-.846z"></path>
               </svg>
             </div>
-            <p className="text-lg font-medium text-white mr-3">
+            <p className="xl:text-lg text-base font-medium text-white mr-3">
               دانلود اپلیکیشن
             </p>
           </div>
           <div className="flex items-center">
-            <div className="flex items-center bg-zinc-700 p-1 ml-4 rounded-lg min-w-25 cursor-pointer">
+            <div className="flex items-center bg-zinc-700 p-1 ml-4 rounded-md xl:min-w-25 cursor-pointer">
               <svg
                 width="40"
                 height="40"
@@ -101,12 +134,12 @@ const Footer = () => {
                   ></image>
                 </defs>
               </svg>
-              <div className="text-zinc-200 text-[10px] mr-2">
+              <div className="text-zinc-200 text-[10px] mr-2 hidden xl:block">
                 دریافت از<p className="text-white text-sm">بازار</p>
               </div>
             </div>
 
-            <div className="flex items-center bg-zinc-700 p-1 ml-4 rounded-lg min-w-25 cursor-pointer">
+            <div className="flex items-center bg-zinc-700 p-1 ml-4 rounded-md xl:min-w-25 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -135,12 +168,12 @@ const Footer = () => {
                   ></image>
                 </defs>
               </svg>
-              <div className="text-zinc-200 text-[10px] mr-2">
+              <div className="text-zinc-200 text-[10px] mr-2 hidden xl:block">
                 دریافت از<p className="text-white text-sm">سیبچه</p>
               </div>
             </div>
 
-            <div className="flex items-center bg-zinc-700 p-1 ml-2 rounded-lg min-w-25 cursor-pointer">
+            <div className="flex items-center bg-zinc-700 p-1 ml-2 rounded-md xl:min-w-25 cursor-pointer">
               <svg
                 width="40"
                 height="40"
@@ -241,7 +274,7 @@ const Footer = () => {
                 </defs>
               </svg>
 
-              <div className="text-zinc-200 text-[10px] mr-2">
+              <div className="text-zinc-200 text-[10px] mr-2 hidden xl:block">
                 دریافت از<p className="text-white text-sm">گوگل پلی</p>
               </div>
             </div>
@@ -249,10 +282,10 @@ const Footer = () => {
             <p className="text-blue-400 mr-2 cursor-pointer">بیشتر</p>
           </div>
         </div>
-        <div className="items-center grid grid-cols-12 mb-2">
-          <div className="col-start-1 col-end-9">
-            <h3 className="text-white text-sm mb-1">درباره نماوا</h3>
-            <p className="text-neutral-400 text-sm/7">
+        <div className="items-center mb-2 flex justify-between">
+          <div className="xl:w-[70%]">
+            <h3 className="text-white xl:text-sm text-xs mb-1">درباره نماوا</h3>
+            <p className="text-neutral-400 xl:text-sm/7 text-[13px]/6">
               سرزمین شاتل در سایت نماوا امکان پخش آنلاین فیلم‌ها و سریال‌های
               محبوبتان را در اختیار شما کاربران گرامی قرار می‌دهد. مشاهده
               پیش‌نمایش فیلم و سریال‌ها، جستجوی سریع مجموعه انتخابی، دانلود
@@ -264,17 +297,13 @@ const Footer = () => {
               را به صورت آنلاین و آفلاین مشاهده کنند.
             </p>
           </div>
-          <div className="flex items-center col-start-10 col-end-12 mr-10">
-            <img
-              src={enamad}
-              alt="enamad"
-              className="w-35 h-25 bg-mist-300 p-2 rounded-md mx-3 cursor-pointer"
-            />
-            <img
-              src={namad}
-              alt="namad"
-              className="w-35 h-25 bg-mist-300 py-2 px-3 rounded-md mr-3 cursor-pointer"
-            />
+          <div className="flex items-center justify-end xl:w-[20%] w-50 mr-10 xl:mr-0 xl:ml-4 shrink-0">
+            <div className="xl:w-35 w-23 xl:h-25 h-23 bg-mist-300 p-2 rounded-md cursor-pointer">
+              <img src={enamad} alt="enamad" className="rounded-md" />
+            </div>
+            <div className="xl:w-35 w-23 xl:h-25 h-23 bg-mist-300 py-2 px-3 rounded-md mr-6 cursor-pointer">
+              <img src={namad} alt="namad" className="rounded-md" />
+            </div>
           </div>
         </div>
         <div className="border-b border-b-neutral-700 w-full my-5"></div>
@@ -283,7 +312,7 @@ const Footer = () => {
             خدمات ارائه شده در نماوا، دارای مجوزهای لازم از مراجع مربوطه است و
             هر گونه بهره‌برداری و سوءاستفاده از محتوای نماوا، پیگرد قانونی دارد.
           </p>
-          <div className="flex items-center text-neutral-200 text-2xl gap-x-8">
+          <div className="flex items-center text-neutral-200 text-2xl gap-x-8 mr-8">
             <FaTwitter className=" hover:text-blue-700 cursor-pointer" />
             <FaInstagram className=" hover:text-blue-700 cursor-pointer" />
             <FaTelegramPlane className=" hover:text-blue-700 cursor-pointer" />
