@@ -68,7 +68,6 @@ const SectionOne = () => {
         setVisibleCards(2);
       }
       setCardWidth(firstCart.getBoundingClientRect().width);
-      console.log(firstCart.getBoundingClientRect().width);
     };
     window.addEventListener("load", updateCardSize);
     window.addEventListener("resize", updateCardSize);
