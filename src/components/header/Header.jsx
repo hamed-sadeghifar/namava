@@ -118,8 +118,11 @@ const arraySlider = [
 ];
 
 const Header = () => {
+  // for maintaining an index of images and their movement
   const [currentIndex, setCurrentIndex] = useState(0);
+  // special for moving circles under the image in small size
   const [currentSlice, setCurrentSlice] = useState(0);
+
   const totalArray = arraySlider.length;
 
   const intervalRef = useRef(null);
@@ -132,6 +135,7 @@ const Header = () => {
       return prev === 0 ? totalArray - 1 : prev - 1;
     });
   };
+
   const restartAutoPlay = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -139,6 +143,7 @@ const Header = () => {
       changeSlide("next");
     }, 5000);
   };
+
   useEffect(() => {
     restartAutoPlay();
     return () => {

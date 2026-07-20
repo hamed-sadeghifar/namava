@@ -3,6 +3,7 @@ import { FaAngleDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState("transparent");
+
   const lastScrollY = useRef(0);
   const navbarRef = useRef(null);
 
@@ -18,9 +19,12 @@ const Navbar = () => {
       } else {
         setShowNavbar("hidden");
       }
+
       lastScrollY.current = currentScroll;
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

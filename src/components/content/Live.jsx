@@ -1,6 +1,7 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { pic1, pic2, pic3, pic4, pic5 } from "../../assets/live/index";
 import { useEffect, useRef, useState } from "react";
+
 const Live = () => {
   const [hoverCart, setHoverCart] = useState(false);
   const [page, setPage] = useState(0);
@@ -11,6 +12,8 @@ const Live = () => {
   const slideRef = useRef(null);
 
   const images = [pic1, pic2, pic3, pic4, pic5];
+  const images2 = [pic2, pic3, pic4, pic5];
+
   const totalPages = Math.ceil(images.length / visibleCards);
 
   useEffect(() => {
@@ -99,50 +102,20 @@ const Live = () => {
               </div>
             </div>
           </div>
-          <div
-            className="text-white rounded-md bg-mist-800 overflow-hidden cursor-pointer
+          {images2.map((image, index) => (
+            <div
+              className="text-white rounded-md bg-mist-800 overflow-hidden cursor-pointer
           xl:w-[calc((100%-15rem)/3)] md:w-[calc((100%-15rem)/2)] w-[calc((100%-1rem)/2)] shrink-0"
-          >
-            <img src={pic2} alt="pic1" className="mb-4" />
-            <div className="px-4">
-              <p className="my-2">فوتبال اسپانیا - آلمان</p>
-              <p className="my-2">مسابقات یورو زیر ۱۹ سال - فینال</p>
-              <p className="mt-2 mb-4">زمان شروع: شنبه ۲۰ تیر - ساعت ۲۱:۳۰</p>
+              key={index}
+            >
+              <img src={image} alt="pic1" className="mb-4" />
+              <div className="px-4">
+                <p className="my-2">فوتبال اسپانیا - آلمان</p>
+                <p className="my-2">مسابقات یورو زیر ۱۹ سال - فینال</p>
+                <p className="mt-2 mb-4">زمان شروع: شنبه ۲۰ تیر - ساعت ۲۱:۳۰</p>
+              </div>
             </div>
-          </div>
-          <div
-            className="text-white rounded-md bg-mist-800 overflow-hidden cursor-pointer
-          xl:w-[calc((100%-15rem)/3)] md:w-[calc((100%-15rem)/2)] w-[calc((100%-1rem)/2)] shrink-0"
-          >
-            <img src={pic3} alt="pic1" className="mb-4" />
-            <div className="px-4">
-              <p className="my-2">فوتبال اسپانیا - آلمان</p>
-              <p className="my-2">مسابقات یورو زیر ۱۹ سال - فینال</p>
-              <p className="mt-2 mb-4">زمان شروع: شنبه ۲۰ تیر - ساعت ۲۱:۳۰</p>
-            </div>
-          </div>
-          <div
-            className="text-white rounded-md bg-mist-800 overflow-hidden cursor-pointer
-          xl:w-[calc((100%-15rem)/3)] md:w-[calc((100%-15rem)/2)] w-[calc((100%-1rem)/2)] shrink-0"
-          >
-            <img src={pic4} alt="pic1" className="mb-4" />
-            <div className="px-4">
-              <p className="my-2">فوتبال اسپانیا - آلمان</p>
-              <p className="my-2">مسابقات یورو زیر ۱۹ سال - فینال</p>
-              <p className="mt-2 mb-4">زمان شروع: شنبه ۲۰ تیر - ساعت ۲۱:۳۰</p>
-            </div>
-          </div>
-          <div
-            className="text-white rounded-md bg-mist-800 overflow-hidden cursor-pointer
-          xl:w-[calc((100%-15rem)/3)] md:w-[calc((100%-15rem)/2)] w-[calc((100%-1rem)/2)] shrink-0"
-          >
-            <img src={pic5} alt="pic1" className="mb-4" />
-            <div className="px-4">
-              <p className="my-2">فوتبال اسپانیا - آلمان</p>
-              <p className="my-2">مسابقات یورو زیر ۱۹ سال - فینال</p>
-              <p className="mt-2 mb-4">زمان شروع: شنبه ۲۰ تیر - ساعت ۲۱:۳۰</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
