@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import {
   pic1,
@@ -57,7 +57,7 @@ const SectionOne = () => {
   const images = window.innerWidth >= 768 ? bigImages : smallImages;
   const totalPages = Math.ceil(bigImages.length / visibleCards);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const updateCardSize = () => {
       if (!slideRef.current) return;
       const firstCart = slideRef.current.children[0];
@@ -70,7 +70,7 @@ const SectionOne = () => {
       setCardWidth(firstCart.getBoundingClientRect().width);
       console.log(firstCart.getBoundingClientRect().width);
     };
-    updateCardSize();
+    window.addEventListener("load", updateCardSize);
     window.addEventListener("resize", updateCardSize);
     return () => {
       window.removeEventListener("resize", updateCardSize);
