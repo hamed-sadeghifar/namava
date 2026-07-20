@@ -31,7 +31,7 @@ const HighLight = () => {
       }
       setCardWidth(firstCart.getBoundingClientRect().width);
     };
-    updateCardSize();
+    window.addEventListener("load", updateCardSize);
     window.addEventListener("resize", updateCardSize);
     return () => {
       window.removeEventListener("resize", updateCardSize);
