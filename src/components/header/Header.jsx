@@ -16,6 +16,7 @@ import {
   backPic4,
   backPic5,
   backPic6,
+  loading,
 } from "../../assets/headerSlider";
 
 const arraySlider = [
@@ -123,6 +124,8 @@ const Header = () => {
   // special for moving circles under the image in small size
   const [currentSlice, setCurrentSlice] = useState(0);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const totalArray = arraySlider.length;
 
   const intervalRef = useRef(null);
@@ -151,52 +154,75 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const preload = arraySlider.map((item) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = item.backImg;
+        img.onload = resolve;
+      });
+    });
+
+    Promise.all(preload).then(() => {
+      setIsLoaded(true);
+    });
+  }, []);
+
   return (
-    <header className="relative w-full xl:aspect-19/9 md:aspect-17.5/9 aspect-14.5/9 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover blur-xl scale-125"
-        style={{
-          backgroundImage: `url(${arraySlider[currentIndex].backImg})`,
-        }}
-      ></div>
-      <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/60 to-black"></div>
-      <div className="inner-header relative z-10 w-full">
-        <div className="xl:h-20 h-15">
-          <Navbar />
+    <>
+      {!isLoaded ? (
+        <div className="text-white w-full flex items-center justify-center h-screen text-2xl font-bold">
+          <img src={loading} alt="Loading" className="w-16 h-16" />
+          لطفا منتظر بمانید ...
         </div>
-        <Slider arraySlider={arraySlider} currentIndex={currentIndex} />
-        <button
-          className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
+      ) : (
+        <header className="relative w-full xl:aspect-19/9 md:aspect-17.5/9 aspect-14.5/9 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover blur-xl scale-125"
+            style={{
+              backgroundImage: `url(${arraySlider[currentIndex].backImg})`,
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/60 to-black"></div>
+          <div className="inner-header relative z-10 w-full">
+            <div className="xl:h-20 h-15">
+              <Navbar />
+            </div>
+            <Slider arraySlider={arraySlider} currentIndex={currentIndex} />
+            <button
+              className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
         hover:bg-white/40 cursor-pointer absolute text-white left-20 bottom-10"
-          onClick={() => {
-            restartAutoPlay();
-            changeSlide("next");
-          }}
-        >
-          <FaAngleLeft className="text-2xl" />
-        </button>
-        <button
-          className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
+              onClick={() => {
+                restartAutoPlay();
+                changeSlide("next");
+              }}
+            >
+              <FaAngleLeft className="text-2xl" />
+            </button>
+            <button
+              className="transition w-10 h-10 md:flex justify-center items-center rounded-full bg-black/60 hidden
         hover:bg-white/40 cursor-pointer absolute text-white left-32 bottom-10"
-          onClick={() => {
-            restartAutoPlay();
-            changeSlide("prev");
-          }}
-        >
-          <FaAngleRight className="text-2xl" />
-        </button>
-        <div className="flex gap-2 justify-center mt-5 md:hidden">
-          {Array.from({ length: totalArray }).map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 inset-0 rounded-full transition-colors duration-500
+              onClick={() => {
+                restartAutoPlay();
+                changeSlide("prev");
+              }}
+            >
+              <FaAngleRight className="text-2xl" />
+            </button>
+            <div className="flex gap-2 justify-center mt-5 md:hidden">
+              {Array.from({ length: totalArray }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 inset-0 rounded-full transition-colors duration-500
                 ${currentSlice === index ? "bg-white" : "bg-mist-500"}
                 `}
-            ></div>
-          ))}
-        </div>
-      </div>
-    </header>
+                ></div>
+              ))}
+            </div>
+          </div>
+        </header>
+      )}
+    </>
   );
 };
 export default Header;
